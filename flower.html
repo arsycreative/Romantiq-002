@@ -1,16 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" href="img/flowers.png" type="image/x-icon" />
     <title>flowers</title>
-</head>
-<body class="container">
-  <!-- Pembuat code: https://codepen.io/mdusmanansari/pen/BamepLe -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      // Initialize EmailJS with your User ID
+      emailjs.init("3M4evG7nxjEhb2UuR");
+
+      function sendWhatsAppNumber() {
+        const whatsappNumber = document.getElementById("whatsappNumber").value;
+
+        // Parameters to be sent in the email
+        const templateParams = {
+          message: whatsappNumber,
+        };
+
+        // Send email using EmailJS
+        emailjs
+          .send("service_8h111my", "template_yasyzmu", templateParams)
+          .then(
+            function (response) {
+              console.log("SUCCESS!", response.status, response.text);
+              alert("Your WhatsApp number has been sent successfully!");
+            },
+            function (error) {
+              console.error("FAILED...", error);
+              alert(
+                "There was an error sending your number. Please try again."
+              );
+            }
+          );
+      }
+    </script>
+  </head>
+  <body class="container">
+    <div
+      class="description1"
+      style="
+        text-align: center;
+        top: 120px;
+        z-index: 40;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+      ">
+      <span
+        style="
+          color: aliceblue;
+          font-size: 20px;
+          text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+        "
+        >Exquisite blooms for extraordinary women</span
+      >
+      <span
+        style="
+          color: aliceblue;
+          font-size: 30px;
+          font-weight: 900;
+          text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+        "
+        >Firda Nafial Aquila</span
+      >
+    </div>
+
+    <div
+      style="
+        text-align: center;
+        top: 170px;
+        margin-top: 20px;
+        z-index: 40;
+        position: absolute;
+      ">
+      <!-- Text prompt asking for WhatsApp number -->
+      <span
+        style="color: aliceblue; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6)"
+        >Could I have the pleasure of your WhatsApp number? 🌸</span
+      >
+      <p style="color: aliceblue; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6)">
+        Enter it below, and let’s stay closer.
+      </p>
+
+      <!-- Form for entering WhatsApp number -->
+
+      <input
+        type="tel"
+        id="whatsappNumber"
+        placeholder="WhatsApp number"
+        required
+        style="
+          width: 250px;
+          padding: 10px;
+          font-size: 16px;
+          color: #333;
+          border: 2px solid #6bf0ff;
+          border-radius: 20px;
+          margin-top: 20px;
+          outline: none;
+          transition: box-shadow 0.3s;
+        "
+        onfocus="this.style.boxShadow='0 0 10px rgba(212, 165, 165, 0.6)'"
+        onblur="this.style.boxShadow='none'" />
+      <button
+        onclick="sendWhatsAppNumber()"
+        style="
+          padding: 10px 20px;
+          font-size: 16px;
+          color: #fff;
+          background-color: #6bf0ff;
+          border: none;
+          border-radius: 20px;
+          margin-left: 10px;
+          cursor: pointer;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: background-color 0.3s, transform 0.3s;
+        "
+        onmouseover="this.style.backgroundColor='#6bf0ff'"
+        onmouseout="this.style.backgroundColor='#6bf0ff'"
+        onmousedown="this.style.transform='scale(0.95)'"
+        onmouseup="this.style.transform='scale(1)'">
+        Send
+      </button>
+    </div>
+    <!-- Pembuat code: https://codepen.io/mdusmanansari/pen/BamepLe -->
     <div class="night"></div>
+
     <div class="flowers">
       <div class="flower flower--1">
         <div class="flower__leafs flower__leafs--1">
@@ -19,7 +137,7 @@
           <div class="flower__leaf flower__leaf--3"></div>
           <div class="flower__leaf flower__leaf--4"></div>
           <div class="flower__white-circle"></div>
-  
+
           <div class="flower__light flower__light--1"></div>
           <div class="flower__light flower__light--2"></div>
           <div class="flower__light flower__light--3"></div>
@@ -28,7 +146,6 @@
           <div class="flower__light flower__light--6"></div>
           <div class="flower__light flower__light--7"></div>
           <div class="flower__light flower__light--8"></div>
-  
         </div>
         <div class="flower__line">
           <div class="flower__line__leaf flower__line__leaf--1"></div>
@@ -39,7 +156,7 @@
           <div class="flower__line__leaf flower__line__leaf--6"></div>
         </div>
       </div>
-  
+
       <div class="flower flower--2">
         <div class="flower__leafs flower__leafs--2">
           <div class="flower__leaf flower__leaf--1"></div>
@@ -47,7 +164,7 @@
           <div class="flower__leaf flower__leaf--3"></div>
           <div class="flower__leaf flower__leaf--4"></div>
           <div class="flower__white-circle"></div>
-  
+
           <div class="flower__light flower__light--1"></div>
           <div class="flower__light flower__light--2"></div>
           <div class="flower__light flower__light--3"></div>
@@ -56,7 +173,6 @@
           <div class="flower__light flower__light--6"></div>
           <div class="flower__light flower__light--7"></div>
           <div class="flower__light flower__light--8"></div>
-  
         </div>
         <div class="flower__line">
           <div class="flower__line__leaf flower__line__leaf--1"></div>
@@ -65,7 +181,7 @@
           <div class="flower__line__leaf flower__line__leaf--4"></div>
         </div>
       </div>
-  
+
       <div class="flower flower--3">
         <div class="flower__leafs flower__leafs--3">
           <div class="flower__leaf flower__leaf--1"></div>
@@ -73,7 +189,7 @@
           <div class="flower__leaf flower__leaf--3"></div>
           <div class="flower__leaf flower__leaf--4"></div>
           <div class="flower__white-circle"></div>
-  
+
           <div class="flower__light flower__light--1"></div>
           <div class="flower__light flower__light--2"></div>
           <div class="flower__light flower__light--3"></div>
@@ -82,7 +198,6 @@
           <div class="flower__light flower__light--6"></div>
           <div class="flower__light flower__light--7"></div>
           <div class="flower__light flower__light--8"></div>
-  
         </div>
         <div class="flower__line">
           <div class="flower__line__leaf flower__line__leaf--1"></div>
@@ -91,14 +206,14 @@
           <div class="flower__line__leaf flower__line__leaf--4"></div>
         </div>
       </div>
-  
-      <div class="grow-ans" style="--d:1.2s">
+
+      <div class="grow-ans" style="--d: 1.2s">
         <div class="flower__g-long">
           <div class="flower__g-long__top"></div>
           <div class="flower__g-long__bottom"></div>
         </div>
       </div>
-  
+
       <div class="growing-grass">
         <div class="flower__grass flower__grass--1">
           <div class="flower__grass--top"></div>
@@ -114,7 +229,7 @@
           <div class="flower__grass__overlay"></div>
         </div>
       </div>
-  
+
       <div class="growing-grass">
         <div class="flower__grass flower__grass--2">
           <div class="flower__grass--top"></div>
@@ -130,50 +245,58 @@
           <div class="flower__grass__overlay"></div>
         </div>
       </div>
-  
-      <div class="grow-ans" style="--d:2.4s">
+
+      <div class="grow-ans" style="--d: 2.4s">
         <div class="flower__g-right flower__g-right--1">
           <div class="leaf"></div>
         </div>
       </div>
-  
-      <div class="grow-ans" style="--d:2.8s">
+
+      <div class="grow-ans" style="--d: 2.8s">
         <div class="flower__g-right flower__g-right--2">
           <div class="leaf"></div>
         </div>
       </div>
-  
-      <div class="grow-ans" style="--d:2.8s">
+
+      <div class="grow-ans" style="--d: 2.8s">
         <div class="flower__g-front">
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
+          <div
+            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
             <div class="flower__g-front__leaf"></div>
           </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
+          <div
+            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
             <div class="flower__g-front__leaf"></div>
           </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
+          <div
+            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
             <div class="flower__g-front__leaf"></div>
           </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
+          <div
+            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
             <div class="flower__g-front__leaf"></div>
           </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
+          <div
+            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
             <div class="flower__g-front__leaf"></div>
           </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
+          <div
+            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
             <div class="flower__g-front__leaf"></div>
           </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
+          <div
+            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
             <div class="flower__g-front__leaf"></div>
           </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
+          <div
+            class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
             <div class="flower__g-front__leaf"></div>
           </div>
           <div class="flower__g-front__line"></div>
         </div>
       </div>
-  
-      <div class="grow-ans" style="--d:3.2s">
+
+      <div class="grow-ans" style="--d: 3.2s">
         <div class="flower__g-fr">
           <div class="leaf"></div>
           <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
@@ -186,123 +309,123 @@
           <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
         </div>
       </div>
-  
+
       <div class="long-g long-g--0">
-        <div class="grow-ans" style="--d:3s">
+        <div class="grow-ans" style="--d: 3s">
           <div class="leaf leaf--0"></div>
         </div>
-        <div class="grow-ans" style="--d:2.2s">
+        <div class="grow-ans" style="--d: 2.2s">
           <div class="leaf leaf--1"></div>
         </div>
-        <div class="grow-ans" style="--d:3.4s">
+        <div class="grow-ans" style="--d: 3.4s">
           <div class="leaf leaf--2"></div>
         </div>
-        <div class="grow-ans" style="--d:3.6s">
+        <div class="grow-ans" style="--d: 3.6s">
           <div class="leaf leaf--3"></div>
         </div>
       </div>
-  
+
       <div class="long-g long-g--1">
-        <div class="grow-ans" style="--d:3.6s">
+        <div class="grow-ans" style="--d: 3.6s">
           <div class="leaf leaf--0"></div>
         </div>
-        <div class="grow-ans" style="--d:3.8s">
+        <div class="grow-ans" style="--d: 3.8s">
           <div class="leaf leaf--1"></div>
         </div>
-        <div class="grow-ans" style="--d:4s">
+        <div class="grow-ans" style="--d: 4s">
           <div class="leaf leaf--2"></div>
         </div>
-        <div class="grow-ans" style="--d:4.2s">
+        <div class="grow-ans" style="--d: 4.2s">
           <div class="leaf leaf--3"></div>
         </div>
       </div>
-  
+
       <div class="long-g long-g--2">
-        <div class="grow-ans" style="--d:4s">
+        <div class="grow-ans" style="--d: 4s">
           <div class="leaf leaf--0"></div>
         </div>
-        <div class="grow-ans" style="--d:4.2s">
+        <div class="grow-ans" style="--d: 4.2s">
           <div class="leaf leaf--1"></div>
         </div>
-        <div class="grow-ans" style="--d:4.4s">
+        <div class="grow-ans" style="--d: 4.4s">
           <div class="leaf leaf--2"></div>
         </div>
-        <div class="grow-ans" style="--d:4.6s">
+        <div class="grow-ans" style="--d: 4.6s">
           <div class="leaf leaf--3"></div>
         </div>
       </div>
-  
+
       <div class="long-g long-g--3">
-        <div class="grow-ans" style="--d:4s">
+        <div class="grow-ans" style="--d: 4s">
           <div class="leaf leaf--0"></div>
         </div>
-        <div class="grow-ans" style="--d:4.2s">
+        <div class="grow-ans" style="--d: 4.2s">
           <div class="leaf leaf--1"></div>
         </div>
-        <div class="grow-ans" style="--d:3s">
+        <div class="grow-ans" style="--d: 3s">
           <div class="leaf leaf--2"></div>
         </div>
-        <div class="grow-ans" style="--d:3.6s">
+        <div class="grow-ans" style="--d: 3.6s">
           <div class="leaf leaf--3"></div>
         </div>
       </div>
-  
+
       <div class="long-g long-g--4">
-        <div class="grow-ans" style="--d:4s">
+        <div class="grow-ans" style="--d: 4s">
           <div class="leaf leaf--0"></div>
         </div>
-        <div class="grow-ans" style="--d:4.2s">
+        <div class="grow-ans" style="--d: 4.2s">
           <div class="leaf leaf--1"></div>
         </div>
-        <div class="grow-ans" style="--d:3s">
+        <div class="grow-ans" style="--d: 3s">
           <div class="leaf leaf--2"></div>
         </div>
-        <div class="grow-ans" style="--d:3.6s">
+        <div class="grow-ans" style="--d: 3.6s">
           <div class="leaf leaf--3"></div>
         </div>
       </div>
-  
+
       <div class="long-g long-g--5">
-        <div class="grow-ans" style="--d:4s">
+        <div class="grow-ans" style="--d: 4s">
           <div class="leaf leaf--0"></div>
         </div>
-        <div class="grow-ans" style="--d:4.2s">
+        <div class="grow-ans" style="--d: 4.2s">
           <div class="leaf leaf--1"></div>
         </div>
-        <div class="grow-ans" style="--d:3s">
+        <div class="grow-ans" style="--d: 3s">
           <div class="leaf leaf--2"></div>
         </div>
-        <div class="grow-ans" style="--d:3.6s">
+        <div class="grow-ans" style="--d: 3.6s">
           <div class="leaf leaf--3"></div>
         </div>
       </div>
-  
+
       <div class="long-g long-g--6">
-        <div class="grow-ans" style="--d:4.2s">
+        <div class="grow-ans" style="--d: 4.2s">
           <div class="leaf leaf--0"></div>
         </div>
-        <div class="grow-ans" style="--d:4.4s">
+        <div class="grow-ans" style="--d: 4.4s">
           <div class="leaf leaf--1"></div>
         </div>
-        <div class="grow-ans" style="--d:4.6s">
+        <div class="grow-ans" style="--d: 4.6s">
           <div class="leaf leaf--2"></div>
         </div>
-        <div class="grow-ans" style="--d:4.8s">
+        <div class="grow-ans" style="--d: 4.8s">
           <div class="leaf leaf--3"></div>
         </div>
       </div>
-  
+
       <div class="long-g long-g--7">
-        <div class="grow-ans" style="--d:3s">
+        <div class="grow-ans" style="--d: 3s">
           <div class="leaf leaf--0"></div>
         </div>
-        <div class="grow-ans" style="--d:3.2s">
+        <div class="grow-ans" style="--d: 3.2s">
           <div class="leaf leaf--1"></div>
         </div>
-        <div class="grow-ans" style="--d:3.5s">
+        <div class="grow-ans" style="--d: 3.5s">
           <div class="leaf leaf--2"></div>
         </div>
-        <div class="grow-ans" style="--d:3.6s">
+        <div class="grow-ans" style="--d: 3.6s">
           <div class="leaf leaf--3"></div>
         </div>
       </div>
