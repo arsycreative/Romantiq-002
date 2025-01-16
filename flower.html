@@ -36,18 +36,18 @@
             }
           );
       }
+
+      window.addEventListener("load", () => {
+        const audio = document.getElementById("backgroundAudio");
+        audio.muted = false;
+        audio.play().catch((error) => {
+          console.error("Audio playback failed:", error);
+        });
+      });
     </script>
   </head>
   <body class="container">
-    <audio
-      autoplay
-      style="
-        top: 50px;
-        z-index: 40;
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-      ">
+    <audio id="backgroundAudio" muted autoplay>
       <source src="/love.mp3" type="audio/mp3" />
     </audio>
     <div
@@ -64,6 +64,7 @@
         style="color: aliceblue; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6)"
         >Exquisite blooms for extraordinary women</span
       >
+
       <span
         style="
           color: aliceblue;
