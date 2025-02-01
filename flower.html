@@ -38,29 +38,19 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        const audio = document.getElementById("backgroundAudio");
+        const audio = new Audio("love.mp3");
         const playPauseBtn = document.getElementById("playPauseBtn");
 
-        // Wait for the audio to be fully loaded
-        audio.addEventListener("canplaythrough", () => {
-          playPauseBtn.addEventListener("click", () => {
-            if (audio.paused) {
-              audio
-                .play()
-                .then(() => {
-                  playPauseBtn.innerHTML = "⏸️"; // Change to Pause icon
-                })
-                .catch((error) => {
-                  console.error("Play failed:", error);
-                  alert(
-                    "Failed to play audio. Please check the console for more details."
-                  );
-                });
-            } else {
-              audio.pause();
-              playPauseBtn.innerHTML = "▶️"; // Change to Play icon
-            }
-          });
+        playPauseBtn.addEventListener("click", () => {
+          if (audio.paused) {
+            audio
+              .play()
+              .catch((error) => console.error("Playback failed:", error));
+            playPauseBtn.textContent = "⏸️";
+          } else {
+            audio.pause();
+            playPauseBtn.textContent = "▶️";
+          }
         });
       });
     </script>
@@ -86,9 +76,6 @@
     </style>
   </head>
   <body class="container">
-    <audio id="backgroundAudio" loop>
-      <source src="/love.mp3?v=1" type="audio/mp3" />
-    </audio>
     <button id="playPauseBtn">▶️</button>
     <div
       class="description1"
