@@ -37,28 +37,23 @@
           );
       }
 
-      window.addEventListener("load", () => {
+      document.addEventListener("DOMContentLoaded", () => {
         const audio = document.getElementById("backgroundAudio");
         const playPauseBtn = document.getElementById("playPauseBtn");
 
-        audio.play().catch((error) => console.error("Autoplay failed:", error));
-
-        // Auto unmute after first interaction
-        document.addEventListener(
-          "click",
-          () => {
-            setTimeout(() => {
-              audio.muted = false;
-            }, 3000);
-          },
-          {once: true}
-        );
-
-        // Play/Pause Button Click Event
         playPauseBtn.addEventListener("click", () => {
           if (audio.paused) {
-            audio.play();
-            playPauseBtn.innerHTML = "⏸️"; // Change to Pause icon
+            audio
+              .play()
+              .then(() => {
+                playPauseBtn.innerHTML = "⏸️"; // Change to Pause icon
+              })
+              .catch((error) => {
+                console.error("Play failed:", error);
+                alert(
+                  "Failed to play audio. Please check the console for more details."
+                );
+              });
           } else {
             audio.pause();
             playPauseBtn.innerHTML = "▶️"; // Change to Play icon
@@ -88,7 +83,7 @@
     </style>
   </head>
   <body class="container">
-    <audio id="backgroundAudio" muted autoplay>
+    <audio id="backgroundAudio" loop>
       <source src="/love.mp3" type="audio/mp3" />
     </audio>
     <button id="playPauseBtn">▶️</button>
@@ -138,7 +133,7 @@
         Hey, I just wanted to say I really admire you. You have such a beautiful
         presence, inside and out. Your positivity is so inspiring, and I can
         tell you're someone who brings light to those around you. Keep shining!
-        Keep being you, and don’t forget how incredible you are!🌸❤️
+        Keep being you, and don’t forget how incredible you are!🌸❤️❤️
       </p>
       <!-- <p
         style="
